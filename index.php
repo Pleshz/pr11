@@ -104,10 +104,10 @@
 			let IdPost = sender.parentElement.id;
 			if(Message == "") return;
 
-			Message = encryptAES(Message, secretKey);
+			EncryptMessage = encryptAES(Message, secretKey);
 
 			var Data = new FormData();
-			Data.append("Message", Message);
+			Data.append("Message", EncryptMessage);
 			Data.append("IdPost", IdPost);
 
 			$.ajax({
