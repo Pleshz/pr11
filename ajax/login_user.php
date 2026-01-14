@@ -14,7 +14,7 @@
 		$encrypted = substr($data, 16);
 
 		$keyHash = md5($key);
-		$keyHash = hex2bin($keyHash);
+		$keyBytes = hex2bin($keyHash);
 
 		$decrypted = openssl_decrypt(
 			$encrypted,
@@ -27,8 +27,8 @@
 		return $decrypted;
 	}
 
-	$login_encrypted = $_POST['login'];
-	$password_encrypted = $_POST['password'];
+	$login_encrypted = $_POST['login'] ?? '';
+	$password_encrypted = $_POST['password'] ?? '';
 
 	$secretKey = "qazxswedcvfrtgbn";
 
